@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the C++ project'
+                sh 'g++ -o PES2UG22CS483-1 jenkin.cpp'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests'
+                sh './PES2UG22CS483-1'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application'
+                sh 'echo "Deployment successful!"'
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Pipeline failed'
+        }
+    }
+}
