@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the C++ project'
-                sh 'g++ -o PES2UG22CS483-1 missingfile.cpp'
+                sh 'g++ -o PES2UG22CS483-1 jenkin.cpp'
             }
         }
 
